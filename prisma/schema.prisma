@@ -1,0 +1,53 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL") // Use environment variable to store DB URL
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id           String   @id @default(uuid()) @db.Char(36) // Changed to Char(36)
+  name         String   @db.VarChar(80)
+  email        String   @unique @db.VarChar(50)
+  password     String   @db.VarChar(255)
+  refreshToken String?  @db.Text
+  profileImage String?  @db.VarChar(50)
+  isDeleted    Boolean  @default(false)
+  isVerified   Boolean  @default(false)
+  createdAt    DateTime @default(now()) @db.Timestamp(6)
+  updatedAt    DateTime @default(now()) @updatedAt @db.Timestamp(6)
+}
+
+model Otp {
+  id        String   @id @default(uuid()) @db.Char(36) // Changed to Char(36)
+  email     String   @unique @db.VarChar(50)
+  otp       Int
+  createdAt DateTime @default(now()) @db.Timestamp(6)
+  expiresAt DateTime @db.Timestamp(6)
+}
+
+model Admin {
+  id           String   @id @default(uuid()) @db.Char(36) // Changed to Char(36)
+  name         String   @db.VarChar(80)
+  email        String   @unique @db.VarChar(50)
+  password     String   @db.VarChar(255)
+  refreshToken String?  @db.VarChar(255)
+  isDeleted    Boolean  @default(false)
+  role         Role     @default(admin)
+  createdBy    String?  @db.Char(36) // Reference to the superAdmin who created this admin (Char(36))
+  permissions  String?  @db.Text // JSON string storing module permissions
+  createdAt    DateTime @default(now()) @db.Timestamp(6)
+  updatedAt    DateTime @default(now()) @updatedAt @db.Timestamp(6)
+}
+
+model Module {
+  id   String @id @default(uuid()) @db.Char(36) // Changed to Char(36)
+  name String @unique @db.VarChar(100) // Increased name length to 100
+}
+
+enum Role {
+  admin
+  superAdmin
+}
