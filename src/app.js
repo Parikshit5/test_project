@@ -1,4 +1,7 @@
 import express from "express";
+import rateLimit from 'express-rate-limit';
+import helmet from 'helmet';
+import xss from 'xss-clean';
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import { DOCUMENT_LIMIT} from "./constants.js";
@@ -19,6 +22,19 @@ app.use(express.static("public"))
 
 app.use(cookieParser())
 
+app.use(helmet());
+
+app.use(xss());
+
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100, // Limit each IP to 100 requests per `window` (15 minutes)
+    standardHeaders: true, 
+    legacyHeaders: false, 
+  });
+  
+
+app.use(limiter);
 
 //UserRoutes import
 import userRouter from "./routes/user/user.routes.js"
