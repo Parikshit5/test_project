@@ -1,0 +1,586 @@
+{
+	"info": {
+		"_postman_id": "42806ee7-b384-4868-9a5a-cdef0b788765",
+		"name": "testProject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29584316",
+		"_collection_link": "https://restless-flare-937506.postman.co/workspace/New-Team-Workspace~42a8ce70-ea3c-436c-aec8-524b3bba054c/collection/29584316-42806ee7-b384-4868-9a5a-cdef0b788765?action=share&source=collection_link&creator=29584316"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Parikshit Purohit",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "iprincepurohit@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "User@123",
+									"type": "text"
+								},
+								{
+									"key": "profileImage",
+									"type": "file",
+									"src": "/C:/Users/ipuro/Downloads/if_you_want_to_get_disciplineconsistencypatient2.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URLS}}/api/v1/users/register",
+							"host": [
+								"{{BASE_URLS}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verifyEmail",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"iprincepurohit@gmail.com\",\r\n    \"otp\":789123\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URLS}}/api/v1/users/verifyEmail",
+							"host": [
+								"{{BASE_URLS}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"verifyEmail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"iprincepurohit@gmail.com\",\r\n    \"password\":\"User@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URLS}}/api/v1/users/login",
+							"host": [
+								"{{BASE_URLS}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"login"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateProfile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ1NjczZDA2LWViNzktNDQ4My1iMGYyLTg3ZDE3MzM1NGEzMiIsImVtYWlsIjoiaXByaW5jZXB1cm9oaXRAZ21haWwuY29tIiwibmFtZSI6IlBhcmlrc2hpdCBQdXJvaGl0IiwiaWF0IjoxNzM0NTMwMjUzLCJleHAiOjE3MzQ2MTY2NTN9.XWcCnazHlfmhD5dtvIzoWff8ikqiMRtq5v-SsRS_5MQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Prince",
+									"type": "text"
+								},
+								{
+									"key": "profileImage",
+									"description": "You can either update one or both..",
+									"type": "file",
+									"src": "/C:/Users/ipuro/Downloads/if_you_want_to_get_disciplineconsistencypatient2.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URLS}}/api/v1/users/",
+							"host": [
+								"{{BASE_URLS}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								""
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "profileImage",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": " requestForgetPassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"iprincepurohit@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URLS}}/api/v1/users/requestForgetPassword",
+							"host": [
+								"{{BASE_URLS}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"requestForgetPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forgetPassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"iprincepurohit@gmail.com\",\r\n    \"otp\":889599,\r\n    \"newPassword\":\"User@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URLS}}/api/v1/users/forgetPassword",
+							"host": [
+								"{{BASE_URLS}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"forgetPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "resetPassword",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMzODJkNjkyLTNhZDAtNGE5Mi1hZWY3LTJlOWI4ODJhMjViMSIsImVtYWlsIjoiaXByaW5jZXB1cm9oaXRAZ21haWwuY29tIiwibmFtZSI6IlBhcmlrc2hpdCBQdXJvaGl0IiwiaWF0IjoxNzM0NTA1NTA4LCJleHAiOjE3MzQ1OTE5MDh9.r_RF_cLUZAKKOLaFZGd6AcSTTINwdlB8U2HvndUZ_W4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"currentPassword\":\"User@123\",\r\n    \"newPassword\":\"User@1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URLS}}/api/v1/users/resetPassword",
+							"host": [
+								"{{BASE_URLS}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"resetPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProfileData",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU2YTIxZWEwLWUyMzEtNDBjMC1iZDg1LTcyYzMxOGE3ODg2ZCIsImVtYWlsIjoiaXByaW5jZXB1cm9oaXRAZ21haWwuY29tIiwibmFtZSI6IlBhcmlrc2hpdCBQdXJvaGl0IiwiaWF0IjoxNzM0NTExNzMxLCJleHAiOjE3MzQ1OTgxMzF9.ZJ9s4iy1sjR63POWQW2LR1umSRJAvrGl8puTebM_Avw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URLS}}/api/v1/users/",
+							"host": [
+								"{{BASE_URLS}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "newAccessToken",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refreshToken\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ1NjczZDA2LWViNzktNDQ4My1iMGYyLTg3ZDE3MzM1NGEzMiIsImVtYWlsIjoiaXByaW5jZXB1cm9oaXRAZ21haWwuY29tIiwibmFtZSI6IlBhcmlrc2hpdCBQdXJvaGl0IiwiaWF0IjoxNzM0NTM2MTc0LCJleHAiOjE3MzU0MDAxNzR9.zVMACiP-HhqEXx7m4II3kogNnqeQbHLbElNCO_clAHU\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URLS}}/api/v1/users/refreshAccessToken",
+							"host": [
+								"{{BASE_URLS}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"refreshAccessToken"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "edit",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJlMDk2ZmUxLWYwODgtNDM0NS04MDY2LWFkMDA3N2RlOThlYSIsImVtYWlsIjoiYWRtaW4xQGFkbWluLmNvbSIsIm5hbWUiOiJBZG1pbiIsImlhdCI6MTczNDUzNDg2OSwiZXhwIjoxNzM0NjIxMjY5fQ.e4S6E4lVcmIMQUJSG7HnrqbvG26zgpCv64rffV-re3k",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Parikshit Purohit\",\r\n    \"isDeleted\":false\r\n}\r\n\r\n//admin2@admin.com only have GET permission so you can check it with that like using that token and all admin passwords temporarily I \r\n//have saved same",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URLS}}/api/v1/admin/user/?id=d5673d06-eb79-4483-b0f2-87d173354a32",
+									"host": [
+										"{{BASE_URLS}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"user",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "d5673d06-eb79-4483-b0f2-87d173354a32"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "search",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJjMzU0Y2ZjLTFjYzQtNDJmMS1hNDc4LTJmNWFmNThhMTMxMyIsImVtYWlsIjoiYWRtaW4yQGFkbWluLmNvbSIsIm5hbWUiOiJBZG1pbiIsImlhdCI6MTczNDUzMzk1OSwiZXhwIjoxNzM0NjIwMzU5fQ.NZZtjh8YMi2-MedgLd8HkEE_XzMJjGIhFYy7P3qHd6Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URLS}}/api/v1/admin/user/?email=iprincepurohit@gmail.com",
+									"host": [
+										"{{BASE_URLS}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"user",
+										""
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "iprincepurohit@gmail.com"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "pagination",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJlMDk2ZmUxLWYwODgtNDM0NS04MDY2LWFkMDA3N2RlOThlYSIsImVtYWlsIjoiYWRtaW4xQGFkbWluLmNvbSIsIm5hbWUiOiJTdXBlciBBZG1pbiIsImlhdCI6MTczNDUzMDU5MCwiZXhwIjoxNzM0NjE2OTkwfQ._FuAdLV5HsVyhReeMWGCPEP1_0a5dwlBC3N7_M2V8zc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URLS}}/api/v1/admin/user/pagination?page=1&limit=10&email=iprincepurohit@gmail.com&isVerified=true&isDeleted=false",
+									"host": [
+										"{{BASE_URLS}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"user",
+										"pagination"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "email",
+											"value": "iprincepurohit@gmail.com"
+										},
+										{
+											"key": "isVerified",
+											"value": "true"
+										},
+										{
+											"key": "isDeleted",
+											"value": "false"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "createAdmin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJlMDk2ZmUxLWYwODgtNDM0NS04MDY2LWFkMDA3N2RlOThlYSIsImVtYWlsIjoiYWRtaW4xQGFkbWluLmNvbSIsIm5hbWUiOiJTdXBlciBBZG1pbiIsImlhdCI6MTczNDUzMDU5MCwiZXhwIjoxNzM0NjE2OTkwfQ._FuAdLV5HsVyhReeMWGCPEP1_0a5dwlBC3N7_M2V8zc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Admin\",\r\n  \"email\": \"admin6@admin.com\",\r\n  \"password\": \"Admin@123\",\r\n  \"role\":\"admin\", //it is an enum admin or superAdmin only\r\n  \"permissions\": [\r\n    {\r\n      \"module\": \"04810274-bd2b-11ef-9f9c-00155d380100\",\r\n      \"permissions\": [\"GET\",\"POST\"]\r\n    }\r\n    //, {\r\n    //   \"module\": \"04810274-bd2b-11ef-9f9c-00155d380100\",\r\n    //   \"permissions\": [\"GET\", \"POST\", \"DELETE\", \"PUT\", \"PATCH\"]\r\n    // },\r\n    // {\r\n    //   \"module\": \"04810274-bd2b-11ef-9f9c-00155d380100\",\r\n    //   \"permissions\": [\"GET\", \"POST\", \"DELETE\", \"PUT\", \"PATCH\"]\r\n    // },\r\n    // {\r\n    //   \"module\": \"04810274-bd2b-11ef-9f9c-00155d380100\",\r\n    //   \"permissions\": [\"GET\", \"POST\", \"DELETE\", \"PUT\", \"PATCH\"]\r\n    // },\r\n    // {\r\n    //   \"module\": \"04810274-bd2b-11ef-9f9c-00155d380100\",\r\n    //   \"permissions\": [\"GET\", \"POST\", \"DELETE\", \"PUT\", \"PATCH\"]\r\n    // }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URLS}}/api/v1/admin/create",
+							"host": [
+								"{{BASE_URLS}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "adminLogin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"admin1@admin.com\",\r\n    \"password\":\"Admin@123\"\r\n}\r\n\r\n//admin2@admin.com only have GET permission so you can check it with that",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URLS}}/api/v1/admin/login",
+							"host": [
+								"{{BASE_URLS}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "{{BASE_URLS}}",
+			"value": "http://localhost:8000",
+			"type": "string"
+		}
+	]
+}
